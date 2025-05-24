@@ -6,7 +6,7 @@ public class ArchTrigger : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            other.GetComponent<TeamPointsController>().AddTeammate();
+            other.GetComponent<TeamController>().AddTeammate();
         }
     }
 }

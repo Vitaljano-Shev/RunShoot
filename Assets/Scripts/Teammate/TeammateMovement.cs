@@ -11,11 +11,6 @@ public class TeammateMovement : MonoBehaviour
 
     Vector3 _targetPosition;
 
-    private void Start()
-    {
-        //_targetPosition = _targetPoint.position;
-    }
-
     private void Update()
     {
         MoveToPoint();
