@@ -7,12 +7,7 @@ public class BulletBox : MonoBehaviour
     [SerializeField] private float _bulletTimer;
 
     [Header("Components")]
-    private TeamController _teamController;
-
-    private void Start()
-    {
-       _teamController =  GameObject.Find("Player").GetComponent<TeamController>();
-    }
+    [SerializeField] private TeamController _teamController;
 
     private void OnTriggerEnter(Collider other)
     {
