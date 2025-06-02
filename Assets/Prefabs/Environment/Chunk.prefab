@@ -140,8 +140,11 @@ MonoBehaviour:
   _spawnPrefabs:
   - {fileID: 1195024663642499311, guid: c421a6fbbbd188349ba005c5d2df5dcd, type: 3}
   - {fileID: 7705931913921283907, guid: d5ddd31ca0b6aab479460e3d9aa77bd4, type: 3}
-  - {fileID: 5789427870231484666, guid: 5221e7803983cc142896b1216acc31a8, type: 3}
   - {fileID: 2163650601614186614, guid: 7214ef2a827e6054cb52f3f720723d1e, type: 3}
+  - {fileID: 2826993382167914286, guid: 8df3df2a3569ce546bb3601603b03655, type: 3}
+  - {fileID: 2826993382167914286, guid: 8df3df2a3569ce546bb3601603b03655, type: 3}
+  - {fileID: 2826993382167914286, guid: 8df3df2a3569ce546bb3601603b03655, type: 3}
+  - {fileID: 2826993382167914286, guid: 8df3df2a3569ce546bb3601603b03655, type: 3}
 --- !u!1 &3837114604501936010
 GameObject:
   m_ObjectHideFlags: 0

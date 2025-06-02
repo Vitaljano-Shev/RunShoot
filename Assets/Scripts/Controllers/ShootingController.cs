@@ -20,7 +20,6 @@ public class ShootingController : MonoBehaviour
     {
         _shooting = true;
         AnimateShooting(_shooting, _shootingString);
-        //_animator.SetBool(_shootingString, _shooting);
         if (_shootCoroutine != null) return; 
             
         _shootCoroutine = StartCoroutine(ShootCoroutine());
@@ -30,7 +29,6 @@ public class ShootingController : MonoBehaviour
     { 
         _shooting = false;
         AnimateShooting(_shooting, _shootingString);
-        //_animator.SetBool(_shootingString, _shooting);
         if (_shootCoroutine != null) StopCoroutine(_shootCoroutine);
     }
 
