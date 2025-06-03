@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4969842558991223911}
   - component: {fileID: -2469254508743367837}
-  - component: {fileID: 318556573091588992}
+  - component: {fileID: -4412114729516277807}
   - component: {fileID: -4724330250406772101}
   m_Layer: 7
   m_Name: EnemyContainer
@@ -58,7 +58,7 @@ CapsuleCollider:
   m_Height: 2.6
   m_Direction: 1
   m_Center: {x: 0, y: 1.25, z: 0}
---- !u!54 &318556573091588992
+--- !u!54 &-4412114729516277807
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
