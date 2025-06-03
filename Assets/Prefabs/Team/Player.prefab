@@ -108,6 +108,7 @@ GameObject:
   - component: {fileID: 5647240187862947229}
   - component: {fileID: 547724480031581240}
   - component: {fileID: 1001190619028317876}
+  - component: {fileID: 5047425120730617923}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -197,8 +198,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerShootingController: {fileID: 1001190619028317876}
+  _playerHealth: {fileID: 0}
   _teammatePrefab: {fileID: 2833560865755977834, guid: 9843da8922233b14e9af4729630868d5, type: 3}
-  _teammateAmount: 10
   _teammates: []
   _teamPoints:
   - {fileID: 2726797651290038492}
@@ -247,6 +248,23 @@ MonoBehaviour:
   _reloadTime: 0.5
   _shootingPoint: {fileID: 2930862585233996957}
   _shootingString: Shooting
+--- !u!114 &5047425120730617923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2619245192816077024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f6af388edd4b4746b1d2a81436025aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHeath: 100
+  _currentHealth: 100
+  _regenerateHealthAmount: 0.01
+  _regenerateHealthTimer: 1.5
+  _damageResistanceTimer: 1
 --- !u!1 &3806323335365500458
 GameObject:
   m_ObjectHideFlags: 0
