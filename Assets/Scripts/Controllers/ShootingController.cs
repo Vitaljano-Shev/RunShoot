@@ -20,7 +20,6 @@ public class ShootingController : MonoBehaviour
     {
         _shooting = true;
         AnimateShooting(_shooting, _shootingString);
-        //_animator.SetBool(_shootingString, _shooting);
         if (_shootCoroutine != null) return; 
             
         _shootCoroutine = StartCoroutine(ShootCoroutine());
@@ -30,8 +29,11 @@ public class ShootingController : MonoBehaviour
     { 
         _shooting = false;
         AnimateShooting(_shooting, _shootingString);
-        //_animator.SetBool(_shootingString, _shooting);
-        if (_shootCoroutine != null) StopCoroutine(_shootCoroutine);
+        if (_shootCoroutine != null)
+        {
+            StopCoroutine(_shootCoroutine);
+            _shootCoroutine = null;
+        }
     }
 
     private void AnimateShooting(bool isShooting, string shootString)
@@ -43,8 +45,8 @@ public class ShootingController : MonoBehaviour
     {
         while (true)
         {
-            MakeShoot(_bulletPrefab);
             yield return new WaitForSeconds(_reloadTime);
+            MakeShoot(_bulletPrefab);
         }
     }
 
