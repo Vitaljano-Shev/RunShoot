@@ -7,10 +7,11 @@ public class TeamController : MonoBehaviour
 {
     [Header("Player Info")]
     [SerializeField] private ShootingController _playerShootingController;
+    [SerializeField] private PlayerHealth _playerHealth;
 
     [Header("Teammate Info")]
     [SerializeField] private GameObject _teammatePrefab;
-    [SerializeField] private int _teammateAmount;
+    //[SerializeField] private int _teammateAmount;
     [SerializeField] private List<TeammateManager> _teammates = new List<TeammateManager>();
 
     [Header("Team Points Info")]
@@ -50,6 +51,20 @@ public class TeamController : MonoBehaviour
             CheckShoot(_enemyTrigger.EnemyAmount);
 
             newTeammate.GetComponent<ShootingController>().BulletPrefab = _bulletCurrentPrefab;
+        }
+    }
+
+    public void DealDamage(float damage)
+    {
+        if(_teammates.Count > 0)
+        {
+            int lastTeammateIndex = _teammates.Count - 1;
+            Destroy(_teammates[lastTeammateIndex].gameObject);
+            _teammates.RemoveAt(lastTeammateIndex);
+        }
+        else
+        {
+            _playerHealth.DealDamage(damage);
         }
     }
 
