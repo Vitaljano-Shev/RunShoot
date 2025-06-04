@@ -145,8 +145,6 @@ MonoBehaviour:
   - {fileID: 2826993382167914286, guid: 8df3df2a3569ce546bb3601603b03655, type: 3}
   - {fileID: 2826993382167914286, guid: 8df3df2a3569ce546bb3601603b03655, type: 3}
   - {fileID: 2826993382167914286, guid: 8df3df2a3569ce546bb3601603b03655, type: 3}
-  - {fileID: 2826993382167914286, guid: 8df3df2a3569ce546bb3601603b03655, type: 3}
-  - {fileID: 2826993382167914286, guid: 8df3df2a3569ce546bb3601603b03655, type: 3}
   _enemySpawnIntervalTime: 0.5
   _minEnemySpawnAmount: 2
   _maxEnemySpawnAmount: 5

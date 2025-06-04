@@ -114,6 +114,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyHealth: {fileID: -951046098304435461}
   _damage: 10
+  _coinPrefab: {fileID: 2564724611391612950, guid: 0e56fc9ffe66e4b41a6590c342c5a065, type: 3}
+  _coinSpawnChance: 50
 --- !u!114 &-951046098304435461
 MonoBehaviour:
   m_ObjectHideFlags: 0
