@@ -7,7 +7,17 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] private float _damage;
 
+    [SerializeField] private GameObject _coinPrefab;
+    [Range(1,100)]
+    [SerializeField] private int _coinSpawnChance;
+
     private TeamController _teamController;
+
+    private void Start()
+    {
+        _enemyHealth.CoinPrefab = _coinPrefab;
+        _enemyHealth.CoinSpawnChance = _coinSpawnChance;
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -16,7 +26,7 @@ public class Enemy : MonoBehaviour
             _teamController = GameObject.Find("Player").GetComponent<TeamController>();
             _teamController.DealDamage(_damage);
 
-            _enemyHealth.Die();
+            _enemyHealth.Die(_coinPrefab,_coinSpawnChance);
         }
     }
 
