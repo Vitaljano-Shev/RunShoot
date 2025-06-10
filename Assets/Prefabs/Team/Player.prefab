@@ -198,7 +198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerShootingController: {fileID: 1001190619028317876}
-  _playerHealth: {fileID: 0}
+  _playerHealth: {fileID: 5047425120730617923}
   _teammatePrefab: {fileID: 2833560865755977834, guid: 9843da8922233b14e9af4729630868d5, type: 3}
   _teammates: []
   _teamPoints:
@@ -229,8 +229,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _forwardSpeed: 2
-  _horizontalSensivity: 5
   _horizontalLimit: 2.2
+  _horizontalSensivityKeyboard: 5
+  _horizontalSensivityPoint: 0.1
 --- !u!114 &1001190619028317876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,11 +261,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f6af388edd4b4746b1d2a81436025aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _healthImageUI: {fileID: 0}
   _maxHeath: 100
   _currentHealth: 100
-  _regenerateHealthAmount: 0.01
+  _regenerateHealthAmount: 0.1
   _regenerateHealthTimer: 1.5
-  _damageResistanceTimer: 1
+  _damageResistanceTimer: 0.5
 --- !u!1 &3806323335365500458
 GameObject:
   m_ObjectHideFlags: 0
