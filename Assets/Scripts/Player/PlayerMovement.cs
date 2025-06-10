@@ -8,7 +8,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _horizontalLimit;
     [SerializeField] private float _horizontalSensivityKeyboard, _horizontalSensivityPoint;
 
-    private float _horizontalValue, _valueX;
+    private float _horizontalValue;
+    private int _valueX;
     private Vector3 _targetPosition;
     private Camera _camera;
 
@@ -36,27 +37,27 @@ public class PlayerMovement : MonoBehaviour
         switch (_horizontalValue)
         {
             case (0):
-                _valueX = 0f;
+                _valueX = 0;
                 break;
             case (< 0):
-                _valueX = -1f;
+                _valueX = -1;
                 break;
             case (> 0):
-                _valueX = 1f;
+                _valueX = 1;
                 break;
             default:
-                _valueX = 0f;
+                _valueX = 0;
                 break;
         }
 
-        //if (_valueX != 0f )
+        //if (_valueX != 0 )
         //{
             _targetPosition += Vector3.right * _valueX * _horizontalSensivityKeyboard * Time.deltaTime;
             _targetPosition.x = Mathf.Clamp(_targetPosition.x, -_horizontalLimit, _horizontalLimit);
 
             Vector3 limitedTargetPosition = new Vector3(_targetPosition.x, transform.position.y, transform.position.z);
             transform.position = Vector3.Lerp(transform.position, limitedTargetPosition, 0.2f); 
-       // }
+        //}
     }
     private void MoveLeftRightPoint()
     {
@@ -84,7 +85,7 @@ public class PlayerMovement : MonoBehaviour
             worldTargetPosition.x = Mathf.Clamp(worldTargetPosition.x, -_horizontalLimit, _horizontalLimit);
 
             Vector3 limitedWorldTargetPosition = new Vector3(worldTargetPosition.x, transform.position.y, transform.position.z);
-            transform.position = Vector3.Lerp(transform.position, limitedWorldTargetPosition, _horizontalSensivityPoint);
+            transform.position = Vector3.MoveTowards(transform.position, limitedWorldTargetPosition, _horizontalSensivityPoint);
             _targetPosition = transform.position;
         }
     }

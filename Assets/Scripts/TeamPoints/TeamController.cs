@@ -36,21 +36,25 @@ public class TeamController : MonoBehaviour
         _bulletCurrentPrefab = _bulletDefaultPrefab;
     }
 
-    public void AddTeammate()
+    public void AddTeammate(int teammateAmountToAdd = 1)
     {
-        if (_teammates.Count <= _teamPoints.Length)
+        for (int i = 0; i < teammateAmountToAdd; i++)
         {
-            int index = _teammates.Count;
+            if (_teammates.Count < _teamPoints.Length)
+            {
+                int index = _teammates.Count;
 
-            GameObject newTeammate = Instantiate(_teammatePrefab, _teamPoints[index].position, Quaternion.identity);
+                GameObject newTeammate = Instantiate(_teammatePrefab, _teamPoints[index].position, Quaternion.identity);
 
-            _teammateManager = newTeammate.GetComponent<TeammateManager>();
-            _teammates.Add(_teammateManager);
-            _teammateManager.Initialize(_teamPoints[index]);
+                _teammateManager = newTeammate.GetComponent<TeammateManager>();
+                _teammates.Add(_teammateManager);
+                _teammateManager.Initialize(_teamPoints[index]);
 
-            CheckShoot(_enemyTrigger.EnemyAmount);
+                CheckShoot(_enemyTrigger.EnemyAmount);
 
-            newTeammate.GetComponent<ShootingController>().BulletPrefab = _bulletCurrentPrefab;
+                newTeammate.GetComponent<ShootingController>().BulletPrefab = _bulletCurrentPrefab;
+            }
+            else return;
         }
     }
 
@@ -58,13 +62,25 @@ public class TeamController : MonoBehaviour
     {
         if(_teammates.Count > 0)
         {
-            int lastTeammateIndex = _teammates.Count - 1;
-            Destroy(_teammates[lastTeammateIndex].gameObject);
-            _teammates.RemoveAt(lastTeammateIndex);
+            RemoveTeammate();
         }
         else
         {
             _playerHealth.DealDamage(damage);
+        }
+    }
+
+    public void RemoveTeammate(int teammateAmountToRemove = 1)
+    {
+        for (int i = 0; i < teammateAmountToRemove; i++)
+        {
+            if (_teammates.Count > 0)
+            {
+                int lastTeammateIndex = _teammates.Count - 1;
+                Destroy(_teammates[lastTeammateIndex].gameObject);
+                _teammates.RemoveAt(lastTeammateIndex);
+            }
+            else return;            
         }
     }
 
