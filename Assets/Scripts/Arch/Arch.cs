@@ -16,6 +16,10 @@ public class Arch : MonoBehaviour
     public ArchController ArchController { set { _archController = value; } }
 
     private int _teammateAmount = 0;
+    public int TeammateAmount { get { return _teammateAmount; } }
+
+    private TeamController _teamController;
+    public TeamController TeamController { get { return _teamController; } }
     
     private void Start()
     {
@@ -51,15 +55,8 @@ public class Arch : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            _archController.AcrhActivated();
-            if (_teammateAmount > 0)
-            {
-                other.GetComponent<TeamController>().AddTeammate(_teammateAmount);
-            }
-            else
-            {
-                other.GetComponent<TeamController>().RemoveTeammate(_teammateAmount * (-1));
-            }
+            _teamController = other.GetComponent<TeamController>();
+            _archController.AcrhActivated(this);
         }
     }
 }

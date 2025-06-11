@@ -11,7 +11,6 @@ public class TeamController : MonoBehaviour
 
     [Header("Teammate Info")]
     [SerializeField] private GameObject _teammatePrefab;
-    //[SerializeField] private int _teammateAmount;
     [SerializeField] private List<TeammateManager> _teammates = new List<TeammateManager>();
 
     [Header("Team Points Info")]
@@ -72,6 +71,8 @@ public class TeamController : MonoBehaviour
 
     public void RemoveTeammate(int teammateAmountToRemove = 1)
     {
+        teammateAmountToRemove = Mathf.Abs(teammateAmountToRemove);
+
         for (int i = 0; i < teammateAmountToRemove; i++)
         {
             if (_teammates.Count > 0)
