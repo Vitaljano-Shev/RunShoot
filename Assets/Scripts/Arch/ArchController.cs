@@ -10,6 +10,7 @@ public class ArchController : MonoBehaviour
 
     private List<GameObject> _arches = new List<GameObject>();
     private Coroutine _archActivatedDelayCoroutine;
+    private Arch _activatedArch;
 
     private void Start()
     {
@@ -44,8 +45,9 @@ public class ArchController : MonoBehaviour
         _arches.Add(generatedArch);
     }
 
-    public void AcrhActivated()
+    public void AcrhActivated(Arch activetedArch)
     {
+        _activatedArch = activetedArch;
         if(_archActivatedDelayCoroutine == null)
         {
             _archActivatedDelayCoroutine = StartCoroutine(ArchActivatedDelayCoroutine());
@@ -54,11 +56,15 @@ public class ArchController : MonoBehaviour
 
     private IEnumerator ArchActivatedDelayCoroutine()
     {
-        Destroy(gameObject);
         yield return new WaitForSeconds(0.1f);
-        //foreach (GameObject arch in _arches)
-        //{
-        //    Destroy(arch);
-        //}
+        Destroy(gameObject);
+        if(_activatedArch.TeammateAmount > 0)
+        {
+            _activatedArch.TeamController.AddTeammate(_activatedArch.TeammateAmount);
+        }
+        else
+        {
+            _activatedArch.TeamController.RemoveTeammate(_activatedArch.TeammateAmount);
+        }
     }
 }
