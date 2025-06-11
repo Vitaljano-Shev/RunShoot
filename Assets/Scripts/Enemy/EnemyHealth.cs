@@ -8,10 +8,10 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] private Collider _collider;
 
     private GameObject _coinPrefab;
-    public GameObject CoinPrefab {set { _coinPrefab = value; } }
+    public GameObject CoinPrefab { set { _coinPrefab = value; } }
 
     private int _coinSpawnChance;
-    public int CoinSpawnChance { set {_coinSpawnChance = value;} }
+    public int CoinSpawnChance { set { _coinSpawnChance = value; } }
 
 
     private EnemyTrigger _enemyTrigger;
@@ -23,20 +23,24 @@ public class EnemyHealth : MonoBehaviour
 
         if (_health <= 0)
         {
-            Die(_coinPrefab,_coinSpawnChance);
+            Die(_coinPrefab, _coinSpawnChance);
         }
     }
 
     public void Die(GameObject objectToSpawn, int spawnChance)
     {
-        if (_enemyTrigger.EnemyList.Contains(_collider))
+        if (_enemyTrigger != null)
         {
-            _enemyTrigger.EnemyList.Remove(_collider);
-            _enemyTrigger.CheckShootInTeam();
+            if (_enemyTrigger.EnemyList.Contains(_collider))
+            {
+                _enemyTrigger.EnemyList.Remove(_collider);
+                _enemyTrigger.CheckShootInTeam();
+            }
         }
+
         Destroy(gameObject);
 
-        if(spawnChance >= Random.Range(1, 101))
+        if (spawnChance >= Random.Range(1, 101))
         {
             Instantiate(objectToSpawn, transform.position, Quaternion.identity, null);
         }
