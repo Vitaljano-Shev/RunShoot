@@ -124,3 +124,4 @@ MonoBehaviour:
   _bulletLifeTime: 3
   _bulletSpeed: 0.4
   _damage: 25
+  _bulletUIColor: {r: 0.74509805, g: 0.74509805, b: 0.74509805, a: 1}

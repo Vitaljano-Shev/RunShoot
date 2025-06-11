@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TeamController : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class TeamController : MonoBehaviour
 
     [Header("Components")]
     [SerializeField] private EnemyTrigger _enemyTrigger;
+    [SerializeField] private SimpleTimer _currentBulletSimpleTimer;
 
     [Header("Bullet Type")]
     [SerializeField] private GameObject _bulletDefaultPrefab;
@@ -109,13 +111,19 @@ public class TeamController : MonoBehaviour
     {
         _bulletCurrentPrefab = bullet;
         SetBulletTypeToTeam();
-        if (_newBulletTimer != null) StopCoroutine(_newBulletTimer);
 
+        if (_newBulletTimer != null)
+        {
+            StopCoroutine(_newBulletTimer);
+            _currentBulletSimpleTimer.StopTimer();
+        }
+
+        _currentBulletSimpleTimer.StartTimer(bulletTimer, bullet.GetComponent<Bullet>().BulletUIColor);
         _newBulletTimer = StartCoroutine(NewBulletTimer(bulletTimer));
     }
 
     private IEnumerator NewBulletTimer(float bulletTimer)
-    {
+    {       
         yield return new WaitForSeconds(bulletTimer);
         _bulletCurrentPrefab = _bulletDefaultPrefab;
         SetBulletTypeToTeam();
