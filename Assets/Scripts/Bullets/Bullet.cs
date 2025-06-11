@@ -7,6 +7,9 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float _bulletSpeed;
     [SerializeField] private float _damage;
 
+    [SerializeField] private Color _bulletUIColor;
+    public Color BulletUIColor { get { return _bulletUIColor; } }
+
     void Start()
     {
         Destroy(gameObject, _bulletLifeTime);
