@@ -6,12 +6,16 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float _bulletLifeTime;
     [SerializeField] private float _bulletSpeed;
     [SerializeField] private float _damage;
+    [SerializeField] private float _rotateYAngle;
 
     [SerializeField] private Color _bulletUIColor;
     public Color BulletUIColor { get { return _bulletUIColor; } }
 
+    private TeamController _teamController;
+
     void Start()
     {
+        transform.Rotate(0, _rotateYAngle, 0);
         Destroy(gameObject, _bulletLifeTime);
     }
 
@@ -26,6 +30,10 @@ public class Bullet : MonoBehaviour
         {
             Destroy(gameObject);
             enemyHealth.DealDamage(_damage);
+        }else if(other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Teammate"))
+        {
+            _teamController = GameObject.Find("Player").GetComponent<TeamController>();
+            _teamController.DealDamage(_damage);
         }
     }
 

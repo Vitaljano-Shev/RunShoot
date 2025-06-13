@@ -213,9 +213,10 @@ MonoBehaviour:
   - {fileID: 660791469158797819}
   - {fileID: 1286020855471524014}
   _enemyTrigger: {fileID: 4937328129580883721}
+  _currentBulletSimpleTimerName: CurrentBulletPanel
   _bulletDefaultPrefab: {fileID: 279344116707090759, guid: b1a787af61340ec41988a4ab5af22521, type: 3}
   _coinAmount: 0
-  _coinAmountText: {fileID: 0}
+  _coinAmountTextName: CoinAmountText
 --- !u!114 &547724480031581240
 MonoBehaviour:
   m_ObjectHideFlags: 0

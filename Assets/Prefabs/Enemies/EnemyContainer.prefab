@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speedMovement: 0.1
+  _rotateYAngle: 180
 --- !u!114 &3793655793094691846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,10 +113,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42e95854522e5dd4ead43cbce4a3e632, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isMelee: 1
+  _isHorde: 1
   _enemyHealth: {fileID: -951046098304435461}
-  _damage: 10
+  _shootingController: {fileID: 0}
+  _meleeDamage: 0
   _coinPrefab: {fileID: 2564724611391612950, guid: 0e56fc9ffe66e4b41a6590c342c5a065, type: 3}
-  _coinSpawnChance: 70
+  _coinSpawnChance: 60
 --- !u!114 &-951046098304435461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,7 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7883d82a2d89dfb4cbb1d08dd6b4c34b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 100
+  _health: 60
   _collider: {fileID: -2469254508743367837}
 --- !u!1001 &5418909324176699857
 PrefabInstance:

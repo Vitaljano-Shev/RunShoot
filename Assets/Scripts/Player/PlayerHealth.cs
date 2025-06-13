@@ -42,7 +42,7 @@ public class PlayerHealth : MonoBehaviour
             RefreshHealthUI();
             if (_currentHealth <= 0)
             {
-                SceneManager.LoadScene(_currentSceneIndex);
+                SceneManager.LoadSceneAsync(_currentSceneIndex);
             }
             
             _canTakeDamage = false;

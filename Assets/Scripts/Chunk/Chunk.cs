@@ -6,16 +6,19 @@ public class Chunk : MonoBehaviour
     [Header("Spawn Info")]
     [SerializeField] Transform[] _spawnPoints;
     [SerializeField] GameObject[] _spawnPrefabs;
+    [SerializeField] private float _leftSpawnValue, _rightSpawnValue;
 
     [Header("Enemy Spawn Info")]
     [SerializeField] private float _enemySpawnIntervalTime;
     [SerializeField] private int _minEnemySpawnAmount, _maxEnemySpawnAmount;
-    [SerializeField] private float _leftEnemySpawnValue, _rightEnemySpawnValue;
 
     private Coroutine _enemyHordeSpawnCoroutine;
 
     private ChunkSpawner _chunkSpawner;
     public ChunkSpawner ChunkSpawner { get { return _chunkSpawner; } set { _chunkSpawner = value; } }
+
+    [SerializeField] private bool _canSpawnEnemy = false;
+    public bool CanSpawnEnemy { get { return _canSpawnEnemy; } set { _canSpawnEnemy = value; } }
 
     private void Start()
     {
@@ -37,7 +40,19 @@ public class Chunk : MonoBehaviour
 
         if (randomSpawnPrefab.CompareTag("Enemy"))
         {
-            _enemyHordeSpawnCoroutine = StartCoroutine(EnemyHordeSpawnCoroutine(randomSpawnPrefab, randomSpawnPoint, _enemySpawnIntervalTime));
+            if (_canSpawnEnemy)
+            {
+                if (randomSpawnPrefab.GetComponent<Enemy>().IsHorde)
+                {
+                    _enemyHordeSpawnCoroutine = StartCoroutine(EnemyHordeSpawnCoroutine(randomSpawnPrefab,
+                                                                                        randomSpawnPoint,
+                                                                                        _enemySpawnIntervalTime));
+                }
+                else
+                {
+                    SpawnAtLimitedXAxePoint(randomSpawnPrefab, randomSpawnPoint);
+                }
+            }
         }
         else
         {
@@ -51,13 +66,17 @@ public class Chunk : MonoBehaviour
 
         for (int i = 0; i < enemySpawnAmount; i++)
         {
-            float enemyXAxeSpawnPoint = Random.Range(_leftEnemySpawnValue, _rightEnemySpawnValue);
-            Vector3 newSpawnPosition = new Vector3(enemyXAxeSpawnPoint, spawnPoint.position.y, spawnPoint.position.z);
-
-            Instantiate(enemy, newSpawnPosition, Quaternion.identity, transform);
+            SpawnAtLimitedXAxePoint(enemy, spawnPoint);
 
             yield return new WaitForSeconds(enemySpawnIntervalTime);
         }
     }
 
+    private void SpawnAtLimitedXAxePoint(GameObject enemy, Transform spawnPoint)
+    {
+        float enemyXAxeSpawnPoint = Random.Range(_leftSpawnValue, _rightSpawnValue);
+        Vector3 newSpawnPosition = new Vector3(enemyXAxeSpawnPoint, spawnPoint.position.y, spawnPoint.position.z);
+
+        Instantiate(enemy, newSpawnPosition, Quaternion.identity, transform);
+    }
 }

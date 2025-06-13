@@ -140,16 +140,17 @@ MonoBehaviour:
   _spawnPrefabs:
   - {fileID: 7705931913921283907, guid: d5ddd31ca0b6aab479460e3d9aa77bd4, type: 3}
   - {fileID: 2163650601614186614, guid: 7214ef2a827e6054cb52f3f720723d1e, type: 3}
+  - {fileID: 5986156517845048344, guid: aebcddf1ad3a7b0409e58eaa01f773af, type: 3}
+  - {fileID: 5986156517845048344, guid: aebcddf1ad3a7b0409e58eaa01f773af, type: 3}
   - {fileID: 2826993382167914286, guid: 8df3df2a3569ce546bb3601603b03655, type: 3}
   - {fileID: 2826993382167914286, guid: 8df3df2a3569ce546bb3601603b03655, type: 3}
-  - {fileID: 5986156517845048344, guid: aebcddf1ad3a7b0409e58eaa01f773af, type: 3}
-  - {fileID: 5986156517845048344, guid: aebcddf1ad3a7b0409e58eaa01f773af, type: 3}
-  - {fileID: 5986156517845048344, guid: aebcddf1ad3a7b0409e58eaa01f773af, type: 3}
+  - {fileID: 3233086821817952492, guid: 40aafa16fa076d94e85d937c9e20ea41, type: 3}
+  - {fileID: 3233086821817952492, guid: 40aafa16fa076d94e85d937c9e20ea41, type: 3}
+  _leftSpawnValue: -2.2
+  _rightSpawnValue: 2.2
   _enemySpawnIntervalTime: 0.5
   _minEnemySpawnAmount: 2
-  _maxEnemySpawnAmount: 5
-  _leftEnemySpawnValue: -2.2
-  _rightEnemySpawnValue: 2.2
+  _maxEnemySpawnAmount: 4
 --- !u!1 &3837114604501936010
 GameObject:
   m_ObjectHideFlags: 0

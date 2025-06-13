@@ -19,6 +19,7 @@ public class TeamController : MonoBehaviour
 
     [Header("Components")]
     [SerializeField] private EnemyTrigger _enemyTrigger;
+    //[SerializeField] private string _currentBulletSimpleTimerName;
     [SerializeField] private SimpleTimer _currentBulletSimpleTimer;
 
     [Header("Bullet Type")]
@@ -26,15 +27,20 @@ public class TeamController : MonoBehaviour
 
     [Header("Coins")]
     [SerializeField] private int _coinAmount = 0;
+    //[SerializeField] private string _coinAmountTextName;
     [SerializeField] private TMP_Text _coinAmountText;
 
     private TeammateManager _teammateManager;
+
+
     private Coroutine _newBulletTimer;
     private GameObject _bulletCurrentPrefab;
 
     private void Start()
     {
         _bulletCurrentPrefab = _bulletDefaultPrefab;
+        //_currentBulletSimpleTimer = GameObject.Find(_currentBulletSimpleTimerName).GetComponent<SimpleTimer>();
+        //_coinAmountText = GameObject.Find(_coinAmountTextName).GetComponent<TMP_Text>();
     }
 
     public void AddTeammate(int teammateAmountToAdd = 1)
