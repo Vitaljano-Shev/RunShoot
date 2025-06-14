@@ -19,7 +19,7 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject, _bulletLifeTime);
     }
 
-    void Update()
+    void FixedUpdate()
     {
         transform.position += transform.forward * _bulletSpeed;
     }
