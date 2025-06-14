@@ -150,7 +150,8 @@ MonoBehaviour:
   _rightSpawnValue: 2.2
   _enemySpawnIntervalTime: 0.5
   _minEnemySpawnAmount: 2
-  _maxEnemySpawnAmount: 4
+  _maxEnemySpawnAmount: 5
+  _canSpawnEnemy: 0
 --- !u!1 &3837114604501936010
 GameObject:
   m_ObjectHideFlags: 0
