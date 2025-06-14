@@ -122,5 +122,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bulletPrefab: {fileID: 279344116707090759, guid: a51f5e3e6a25e0b4e90ad0ea2f748d5d, type: 3}
-  _bulletTimer: 1.5
-  _teamController: {fileID: 0}
+  _bulletTimer: 2

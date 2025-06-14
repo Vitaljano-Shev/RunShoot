@@ -144,6 +144,7 @@ MonoBehaviour:
   - {fileID: 5986156517845048344, guid: aebcddf1ad3a7b0409e58eaa01f773af, type: 3}
   - {fileID: 2826993382167914286, guid: 8df3df2a3569ce546bb3601603b03655, type: 3}
   - {fileID: 2826993382167914286, guid: 8df3df2a3569ce546bb3601603b03655, type: 3}
+  - {fileID: 2826993382167914286, guid: 8df3df2a3569ce546bb3601603b03655, type: 3}
   - {fileID: 3233086821817952492, guid: 40aafa16fa076d94e85d937c9e20ea41, type: 3}
   - {fileID: 3233086821817952492, guid: 40aafa16fa076d94e85d937c9e20ea41, type: 3}
   _leftSpawnValue: -2.2
